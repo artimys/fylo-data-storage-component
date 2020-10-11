@@ -51,9 +51,6 @@ $limit-bar-height: 23px;
 $limit-padding: 3px;
 $usage-bar-height: $limit-bar-height - ($limit-padding * 2);
 
-$data-limit: 1000.00;
-$data-usage: 815.00;
-
 
 .data-storage-component {
     position: relative;
@@ -72,18 +69,26 @@ $data-usage: 815.00;
     .data-usage-bar {
         position: relative;
         background-image: linear-gradient(to right, $gradient-start, $gradient-end);
+        height: $usage-bar-height;
+
+        // Attempt to calculate percentage usage bar
+        // $data-limit: 1000.00;
+        // $data-usage: 815.00;
         // width: percantage(percantage($data-limit) - percantage($data-usage)) % percentage($data-limit) ;
         // width: 81.85%;
-        width: 75%;
-        height: $usage-bar-height;
+        width: 75%; // Faking it instead
 
         // White dot
         &::after {
             content: "";
             position: absolute;
-            width: $usage-bar-height - ($limit-padding * 2);
-            height: $usage-bar-height - ($limit-padding * 2);
-            padding: $limit-padding;
+
+            $white-dot-margin: 2px;
+            $white-dot-margin-right: 3px;
+
+            width: $usage-bar-height - ($white-dot-margin * 2);
+            height: $usage-bar-height - ($white-dot-margin * 2);
+            margin: $white-dot-margin $white-dot-margin-right;
             border-radius: 50%;
             background: white;
             right: 0;

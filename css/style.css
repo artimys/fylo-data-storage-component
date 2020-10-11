@@ -62,16 +62,16 @@ STORAGE LIMIT BAR
   position: relative;
   background-image: -webkit-gradient(linear, left top, right top, from(#ffa399), to(#ff4d97));
   background-image: linear-gradient(to right, #ffa399, #ff4d97);
-  width: 75%;
   height: 17px;
+  width: 75%;
 }
 
 .data-storage-component .data-usage-bar::after {
   content: "";
   position: absolute;
-  width: 11px;
-  height: 11px;
-  padding: 3px;
+  width: 13px;
+  height: 13px;
+  margin: 2px 3px;
   border-radius: 50%;
   background: white;
   right: 0;
