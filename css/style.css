@@ -26,9 +26,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -43,14 +43,18 @@ body {
 /*==========
 STORAGE LIMIT BAR
 =========*/
+.storage-container {
+  position: relative;
+}
+
 .storage-container .limit-bar, .storage-container .usage-bar {
   border-radius: 15px;
 }
 
 .storage-container .limit-bar {
-  margin: 1.5em 0 1em;
+  margin: 1.5em 0 0.6em;
   background-color: #0c122c;
-  height: 25px;
+  height: 23px;
   padding: 3px;
 }
 
@@ -58,15 +62,15 @@ STORAGE LIMIT BAR
   position: relative;
   background-image: -webkit-gradient(linear, left top, right top, from(#ffa399), to(#ff4d97));
   background-image: linear-gradient(to right, #ffa399, #ff4d97);
-  width: 81.85%;
-  height: 19px;
+  width: 75%;
+  height: 17px;
 }
 
 .storage-container .usage-bar::after {
   content: "";
   position: absolute;
-  width: 13px;
-  height: 13px;
+  width: 11px;
+  height: 11px;
   padding: 3px;
   border-radius: 50%;
   background: white;
@@ -75,7 +79,9 @@ STORAGE LIMIT BAR
 
 .storage-container .min, .storage-container .max {
   width: 50%;
+  font-size: 0.8rem;
   font-weight: 700;
+  color: #dddbff;
 }
 
 .storage-container .min {
@@ -89,14 +95,39 @@ STORAGE LIMIT BAR
 }
 
 .storage-container .storage-remaining {
-  display: none;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  width: 170px;
+  height: 77px;
+  top: 77px;
+  left: 50%;
+  margin-left: -85px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.storage-container .storage-remaining .gb-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: black;
+  margin-right: 10px;
+}
+
+.storage-container .storage-remaining .gb-unit {
+  font-size: 0.8rem;
+  color: #848794;
 }
 
 /*==========
 LAYOUT
 =========*/
 .container {
-  margin-top: 10em;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -145,14 +176,8 @@ LAYOUT
 }
 
 .container main {
-  padding: 2.5em;
-  padding-bottom: 4em;
+  padding: 2.5em 2.5em 4em;
   text-align: center;
-}
-
-.attribution {
-  bottom: 0;
-  padding: 5em 2em;
 }
 
 /*==========
@@ -173,17 +198,30 @@ DESKTOP
     -webkit-column-gap: 3em;
             column-gap: 3em;
     height: 219px;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: end;
   }
   .container header {
     width: 40%;
   }
   .container main {
     width: 60%;
-    height: 160px;
     text-align: left;
+    height: 160px;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  .storage-container .storage-remaining {
+    margin-left: 0;
+    left: auto;
+    top: -122px;
+    right: 0;
+  }
+  .storage-container .storage-remaining::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+    border-left: 30px solid transparent;
+    border-top: 30px solid white;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -34,11 +34,8 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-
-    // padding: 10em 2em;
-    // margin-top: 10em;
 }
 
 .flex {
@@ -50,43 +47,42 @@ body {
 STORAGE LIMIT BAR
 =========*/
 
+$limit-bar-height: 23px;
+$limit-padding: 3px;
+$usage-bar-height: $limit-bar-height - ($limit-padding * 2);
+
+$data-limit: 1000.00;
+$data-usage: 815.00;
+
+
 .storage-container {
-    $limit-height: 25px;
-    $limit-padding: 3px;
-    $usage-height: $limit-height - ($limit-padding * 2);
-
-    $data-limit: 1000.00;
-    $data-usage: 815.00;
-
+    position: relative;
 
     .limit-bar, .usage-bar {
         border-radius: 15px;
     }
 
     .limit-bar {
-        margin: 1.5em 0 1em;
-
+        margin: 1.5em 0 0.6em;
         background-color: $very-dark-blue;
-        height: $limit-height;
+        height: $limit-bar-height;
         padding: $limit-padding;
     }
 
     .usage-bar {
         position: relative;
         background-image: linear-gradient(to right, $gradient-start, $gradient-end);
-
         // width: percantage(percantage($data-limit) - percantage($data-usage)) % percentage($data-limit) ;
-        @debug "arty test: #{$data-limit - $data-usage}";
-        // width: ($data-limit - $data-usage) % $data-limit;
-        width: 81.85%;
-        height: $usage-height;
+        // width: 81.85%;
+        width: 75%;
+        height: $usage-bar-height;
 
         // White dot
         &::after {
             content: "";
             position: absolute;
-            width: $usage-height - ($limit-padding * 2);
-            height: $usage-height - ($limit-padding * 2);
+            width: $usage-bar-height - ($limit-padding * 2);
+            height: $usage-bar-height - ($limit-padding * 2);
             padding: $limit-padding;
             border-radius: 50%;
             background: white;
@@ -96,7 +92,9 @@ STORAGE LIMIT BAR
 
     .min, .max {
         width: 50%;
+        font-size: 0.8rem;
         font-weight: 700;
+        color: $pale-blue;
     }
     .min {
         float: left;
@@ -108,7 +106,34 @@ STORAGE LIMIT BAR
     }
 
     .storage-remaining {
-        display: none;
+        $gb-left-box-width: 170px;
+        $gb-left-box-height: 77px;
+
+        position: absolute;
+        background-color: white;
+        border-radius: 10px;
+        font-weight: 700;
+
+        width: $gb-left-box-width;
+        height: $gb-left-box-height;
+        top: $gb-left-box-height;
+        left: 50%;
+        margin-left: -($gb-left-box-width / 2);
+
+        // Center text "185 GB LEFT"
+        justify-content: center;
+        align-items: center;
+
+        .gb-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: black;
+            margin-right: 10px;
+        }
+        .gb-unit {
+            font-size: 0.8rem;
+            color: $grayish-blue;
+        }
     }
 }
 
@@ -119,7 +144,6 @@ LAYOUT
 =========*/
 
 .container {
-    margin-top: 10em;
     flex-direction: column;
     row-gap: 1.5em;
 
@@ -157,19 +181,11 @@ LAYOUT
     }
 
     main {
-        padding: 2.5em;
-        padding-bottom: 4em;
+        padding: 2.5em 2.5em 4em;
         text-align: center;
     }
 
 }
-
-.attribution {
-    // position: fixed;
-    bottom: 0;
-    padding: 5em 2em;
-}
-
 
 
 
@@ -191,7 +207,6 @@ DESKTOP
         column-gap: 3em;
 
         height: 219px;
-        align-items: end;
 
         header {
             width: 40%;
@@ -199,9 +214,34 @@ DESKTOP
 
         main {
             width: 60%;
-            height: 160px;
             text-align: left;
+            // Align main box to bottom of .container
+            height: 160px;
+            align-self: flex-end;
         }
     }
 
+    .storage-container {
+        .storage-remaining {
+            $gb-left-box-width: 179px;
+            $gb-left-box-height: 77px;
+
+            // Reset mobile positioning
+            margin-left: 0;
+            left: auto;
+
+            // Set desktop location
+            top: -($gb-left-box-height + 45px);
+            right: 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                bottom: -20px;
+                border-left: 30px solid transparent;
+                border-top: 30px solid white;
+            }
+        }
+    }
 }

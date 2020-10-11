@@ -11,7 +11,7 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    .attribution { position: fixed; bottom: 0; font-size: 11px; text-align: center; padding: 9em 2em 1em; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
@@ -39,8 +39,8 @@
         <div class="min">0 GB</div>
         <div class="max">1000 GB</div>
 
-        <div class="storage-remaining">
-          185 GB Left
+        <div class="storage-remaining flex">
+          <span class="gb-number">185</span> <span class="gb-unit">GB LEFT</span>
         </div>
       </div>
     </main>
