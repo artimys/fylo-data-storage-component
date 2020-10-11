@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+// Primary colors
+$gradient-start: hsl(6, 100%, 80%);
+$gradient-end: hsl(335, 100%, 65%);
+// Neutral colors
+$pale-blue: hsl(243, 100%, 93%);
+$grayish-blue: hsl(229, 7%, 55%);
+$dark-blue: hsl(228, 56%, 26%);
+$very-dark-blue: hsl(229, 57%, 11%);
+
+
+
+/*==========
+DEFAULTS
+=========*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: $very-dark-blue;
+    background-image: url(../images/bg-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    // padding: 10em 2em;
+    // margin-top: 10em;
+}
+
+.flex {
+    display: flex;
+}
+
+
+/*==========
+STORAGE LIMIT BAR
+=========*/
+
+.storage-container {
+    $limit-height: 25px;
+    $limit-padding: 3px;
+    $usage-height: $limit-height - ($limit-padding * 2);
+
+    $data-limit: 1000.00;
+    $data-usage: 815.00;
+
+
+    .limit-bar, .usage-bar {
+        border-radius: 15px;
+    }
+
+    .limit-bar {
+        margin: 1.5em 0 1em;
+
+        background-color: $very-dark-blue;
+        height: $limit-height;
+        padding: $limit-padding;
+    }
+
+    .usage-bar {
+        position: relative;
+        background-image: linear-gradient(to right, $gradient-start, $gradient-end);
+
+        // width: percantage(percantage($data-limit) - percantage($data-usage)) % percentage($data-limit) ;
+        @debug "arty test: #{$data-limit - $data-usage}";
+        // width: ($data-limit - $data-usage) % $data-limit;
+        width: 81.85%;
+        height: $usage-height;
+
+        // White dot
+        &::after {
+            content: "";
+            position: absolute;
+            width: $usage-height - ($limit-padding * 2);
+            height: $usage-height - ($limit-padding * 2);
+            padding: $limit-padding;
+            border-radius: 50%;
+            background: white;
+            right: 0;
+        }
+    }
+
+    .min, .max {
+        width: 50%;
+        font-weight: 700;
+    }
+    .min {
+        float: left;
+        text-align: left;
+    }
+    .max {
+        float: right;
+        text-align: right;
+    }
+
+    .storage-remaining {
+        display: none;
+    }
+}
+
+
+
+/*==========
+LAYOUT
+=========*/
+
+.container {
+    margin-top: 10em;
+    flex-direction: column;
+    row-gap: 1.5em;
+
+    width: 100%;
+    min-width: 375px;
+    max-width: 1000px;
+    padding-left: 2em;
+    padding-right: 2em;
+
+    header, main {
+        background-color: $dark-blue;
+        border-radius: 10px;
+    }
+
+    header {
+        padding: 3em;
+        border-top-right-radius: 110px;
+
+        ul {
+            margin-top: 3em;
+            width: 180px;
+            list-style: none;
+            justify-content: space-between;
+            align-items: center;
+
+            li {
+                background-color: $very-dark-blue;
+                width: 50px;
+                height: 50px;
+                border-radius: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    main {
+        padding: 2.5em;
+        padding-bottom: 4em;
+        text-align: center;
+    }
+
+}
+
+.attribution {
+    // position: fixed;
+    bottom: 0;
+    padding: 5em 2em;
+}
+
+
+
+
+/*==========
+DESKTOP
+=========*/
+
+@media only screen and (min-width: 700px) {
+
+    body {
+        background-image: url(../images/bg-desktop.png);
+        background-size: contain;
+        background-position: bottom;
+    }
+
+    .container {
+        flex-direction: row;
+        row-gap: 0;
+        column-gap: 3em;
+
+        height: 219px;
+        align-items: end;
+
+        header {
+            width: 40%;
+        }
+
+        main {
+            width: 60%;
+            height: 160px;
+            text-align: left;
+        }
+    }
+
+}

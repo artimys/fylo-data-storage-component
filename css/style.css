@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+/*==========
+DEFAULTS
+=========*/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0c122c;
+  background-image: url(../images/bg-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  color: #fff;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/*==========
+STORAGE LIMIT BAR
+=========*/
+.storage-container .limit-bar, .storage-container .usage-bar {
+  border-radius: 15px;
+}
+
+.storage-container .limit-bar {
+  margin: 1.5em 0 1em;
+  background-color: #0c122c;
+  height: 25px;
+  padding: 3px;
+}
+
+.storage-container .usage-bar {
+  position: relative;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffa399), to(#ff4d97));
+  background-image: linear-gradient(to right, #ffa399, #ff4d97);
+  width: 81.85%;
+  height: 19px;
+}
+
+.storage-container .usage-bar::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  padding: 3px;
+  border-radius: 50%;
+  background: white;
+  right: 0;
+}
+
+.storage-container .min, .storage-container .max {
+  width: 50%;
+  font-weight: 700;
+}
+
+.storage-container .min {
+  float: left;
+  text-align: left;
+}
+
+.storage-container .max {
+  float: right;
+  text-align: right;
+}
+
+.storage-container .storage-remaining {
+  display: none;
+}
+
+/*==========
+LAYOUT
+=========*/
+.container {
+  margin-top: 10em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 1.5em;
+  width: 100%;
+  min-width: 375px;
+  max-width: 1000px;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.container header, .container main {
+  background-color: #1d2c67;
+  border-radius: 10px;
+}
+
+.container header {
+  padding: 3em;
+  border-top-right-radius: 110px;
+}
+
+.container header ul {
+  margin-top: 3em;
+  width: 180px;
+  list-style: none;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container header ul li {
+  background-color: #0c122c;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container main {
+  padding: 2.5em;
+  padding-bottom: 4em;
+  text-align: center;
+}
+
+.attribution {
+  bottom: 0;
+  padding: 5em 2em;
+}
+
+/*==========
+DESKTOP
+=========*/
+@media only screen and (min-width: 700px) {
+  body {
+    background-image: url(../images/bg-desktop.png);
+    background-size: contain;
+    background-position: bottom;
+  }
+  .container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    row-gap: 0;
+    -webkit-column-gap: 3em;
+            column-gap: 3em;
+    height: 219px;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
+  }
+  .container header {
+    width: 40%;
+  }
+  .container main {
+    width: 60%;
+    height: 160px;
+    text-align: left;
+  }
+}
+/*# sourceMappingURL=style.css.map */
