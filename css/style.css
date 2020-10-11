@@ -142,6 +142,8 @@ LAYOUT
 
 .container header, .container main {
   background-color: #1d2c67;
+  -webkit-box-shadow: 25px 25px 45px rgba(0, 0, 0, 0.3);
+          box-shadow: 25px 25px 45px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
@@ -214,6 +216,8 @@ DESKTOP
     left: auto;
     top: -122px;
     right: 0;
+    -webkit-box-shadow: 25px 25px 45px rgba(0, 0, 0, 0.3);
+            box-shadow: 25px 25px 45px rgba(0, 0, 0, 0.3);
   }
   .storage-container .storage-remaining::after {
     content: "";
