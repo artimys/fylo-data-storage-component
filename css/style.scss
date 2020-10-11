@@ -55,21 +55,21 @@ $data-limit: 1000.00;
 $data-usage: 815.00;
 
 
-.storage-container {
+.data-storage-component {
     position: relative;
 
-    .limit-bar, .usage-bar {
+    .data-limit-bar, .data-usage-bar {
         border-radius: 15px;
     }
 
-    .limit-bar {
+    .data-limit-bar {
         margin: 1.5em 0 0.6em;
         background-color: $very-dark-blue;
         height: $limit-bar-height;
         padding: $limit-padding;
     }
 
-    .usage-bar {
+    .data-usage-bar {
         position: relative;
         background-image: linear-gradient(to right, $gradient-start, $gradient-end);
         // width: percantage(percantage($data-limit) - percantage($data-usage)) % percentage($data-limit) ;
@@ -90,22 +90,22 @@ $data-usage: 815.00;
         }
     }
 
-    .min, .max {
+    .data-min, .data-max {
         width: 50%;
         font-size: 0.8rem;
         font-weight: 700;
         color: $pale-blue;
     }
-    .min {
+    .data-min {
         float: left;
         text-align: left;
     }
-    .max {
+    .data-max {
         float: right;
         text-align: right;
     }
 
-    .storage-remaining {
+    .data-remaining {
         $gb-left-box-width: 170px;
         $gb-left-box-height: 77px;
 
@@ -222,29 +222,27 @@ DESKTOP
         }
     }
 
-    .storage-container {
-        .storage-remaining {
-            $gb-left-box-width: 179px;
-            $gb-left-box-height: 77px;
+    .data-storage-component .data-remaining {
+        $gb-left-box-width: 179px;
+        $gb-left-box-height: 77px;
 
-            // Reset mobile positioning
-            margin-left: 0;
-            left: auto;
+        // Reset mobile positioning
+        margin-left: 0;
+        left: auto;
 
-            // Set desktop location
-            top: -($gb-left-box-height + 45px);
+        // Set desktop location
+        top: -($gb-left-box-height + 45px);
+        right: 0;
+
+        box-shadow: 25px 25px 45px rgba(0,0,0, 0.3);
+
+        &::after {
+            content: "";
+            position: absolute;
             right: 0;
-
-            box-shadow: 25px 25px 45px rgba(0,0,0, 0.3);
-
-            &::after {
-                content: "";
-                position: absolute;
-                right: 0;
-                bottom: -20px;
-                border-left: 30px solid transparent;
-                border-top: 30px solid white;
-            }
+            bottom: -20px;
+            border-left: 30px solid transparent;
+            border-top: 30px solid white;
         }
     }
 }

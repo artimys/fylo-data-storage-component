@@ -43,22 +43,22 @@ body {
 /*==========
 STORAGE LIMIT BAR
 =========*/
-.storage-container {
+.data-storage-component {
   position: relative;
 }
 
-.storage-container .limit-bar, .storage-container .usage-bar {
+.data-storage-component .data-limit-bar, .data-storage-component .data-usage-bar {
   border-radius: 15px;
 }
 
-.storage-container .limit-bar {
+.data-storage-component .data-limit-bar {
   margin: 1.5em 0 0.6em;
   background-color: #0c122c;
   height: 23px;
   padding: 3px;
 }
 
-.storage-container .usage-bar {
+.data-storage-component .data-usage-bar {
   position: relative;
   background-image: -webkit-gradient(linear, left top, right top, from(#ffa399), to(#ff4d97));
   background-image: linear-gradient(to right, #ffa399, #ff4d97);
@@ -66,7 +66,7 @@ STORAGE LIMIT BAR
   height: 17px;
 }
 
-.storage-container .usage-bar::after {
+.data-storage-component .data-usage-bar::after {
   content: "";
   position: absolute;
   width: 11px;
@@ -77,24 +77,24 @@ STORAGE LIMIT BAR
   right: 0;
 }
 
-.storage-container .min, .storage-container .max {
+.data-storage-component .data-min, .data-storage-component .data-max {
   width: 50%;
   font-size: 0.8rem;
   font-weight: 700;
   color: #dddbff;
 }
 
-.storage-container .min {
+.data-storage-component .data-min {
   float: left;
   text-align: left;
 }
 
-.storage-container .max {
+.data-storage-component .data-max {
   float: right;
   text-align: right;
 }
 
-.storage-container .storage-remaining {
+.data-storage-component .data-remaining {
   position: absolute;
   background-color: white;
   border-radius: 10px;
@@ -112,14 +112,14 @@ STORAGE LIMIT BAR
           align-items: center;
 }
 
-.storage-container .storage-remaining .gb-number {
+.data-storage-component .data-remaining .gb-number {
   font-size: 2.5rem;
   font-weight: 700;
   color: black;
   margin-right: 10px;
 }
 
-.storage-container .storage-remaining .gb-unit {
+.data-storage-component .data-remaining .gb-unit {
   font-size: 0.8rem;
   color: #848794;
 }
@@ -211,7 +211,7 @@ DESKTOP
     -ms-flex-item-align: end;
         align-self: flex-end;
   }
-  .storage-container .storage-remaining {
+  .data-storage-component .data-remaining {
     margin-left: 0;
     left: auto;
     top: -122px;
@@ -219,7 +219,7 @@ DESKTOP
     -webkit-box-shadow: 25px 25px 45px rgba(0, 0, 0, 0.3);
             box-shadow: 25px 25px 45px rgba(0, 0, 0, 0.3);
   }
-  .storage-container .storage-remaining::after {
+  .data-storage-component .data-remaining::after {
     content: "";
     position: absolute;
     right: 0;
