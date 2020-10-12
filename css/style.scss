@@ -47,7 +47,7 @@ body {
 STORAGE LIMIT BAR
 =========*/
 
-$limit-bar-height: 23px;
+$limit-bar-height: 20px;
 $limit-padding: 3px;
 $usage-bar-height: $limit-bar-height - ($limit-padding * 2);
 
@@ -169,7 +169,7 @@ LAYOUT
         border-top-right-radius: 110px;
 
         ul {
-            margin-top: 3em;
+            margin-top: 2em;
             width: 180px;
             list-style: none;
             justify-content: space-between;
@@ -212,7 +212,7 @@ DESKTOP
         row-gap: 0;
         column-gap: 3em;
 
-        height: 219px;
+        height: 200px;
 
         header {
             width: 40%;
