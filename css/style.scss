@@ -71,12 +71,26 @@ $usage-bar-height: $limit-bar-height - ($limit-padding * 2);
         background-image: linear-gradient(to right, $gradient-start, $gradient-end);
         height: $usage-bar-height;
 
+
+        // Cool animation on page load
+        @keyframes fillBar {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 75%;
+            }
+        }
+        animation: 1s ease-out 0s 1 fillBar;
+        width: 75%; // Faking it instead
+
+
+
         // Attempt to calculate percentage usage bar
         // $data-limit: 1000.00;
         // $data-usage: 815.00;
         // width: percantage(percantage($data-limit) - percantage($data-usage)) % percentage($data-limit) ;
         // width: 81.85%;
-        width: 75%; // Faking it instead
 
         // White dot
         &::after {

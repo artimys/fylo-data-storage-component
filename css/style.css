@@ -63,7 +63,27 @@ STORAGE LIMIT BAR
   background-image: -webkit-gradient(linear, left top, right top, from(#ffa399), to(#ff4d97));
   background-image: linear-gradient(to right, #ffa399, #ff4d97);
   height: 14px;
+  -webkit-animation: 1s ease-out 0s 1 fillBar;
+          animation: 1s ease-out 0s 1 fillBar;
   width: 75%;
+}
+
+@-webkit-keyframes fillBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 75%;
+  }
+}
+
+@keyframes fillBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 75%;
+  }
 }
 
 .data-storage-component .data-usage-bar::after {
